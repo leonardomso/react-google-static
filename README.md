@@ -1,172 +1,126 @@
-<<<<<<< HEAD
-# TSDX React User Guide
+<h1 align="center">
+   🌍 React Google Static Maps
+</h1>
 
-Congrats! You just saved yourself hours of work by bootstrapping this project with TSDX. Let’s get you oriented with what’s here and how to use it.
+A React component wrapper to use the Google Static Maps API. Don't forget that to use this API you must have a billing account and an Static Maps API key. 
 
-> This TSDX setup is meant for developing React components (not apps!) that can be published to NPM. If you’re looking to build an app, you should use `create-react-app`, `razzle`, `nextjs`, `gatsby`, or `react-static`.
+This library supports custom markers. To use a custom icon, you should provide a url link, for example: `https://img.icons8.com/dusk/64/000000/marker.png`.
+  
 
-> If you’re new to TypeScript and React, checkout [this handy cheatsheet](https://github.com/sw-yx/react-typescript-cheatsheet/)
+## Installation
 
-## Commands
-
-TSDX scaffolds your new library inside `/src`, and also sets up a [Parcel-based](https://parceljs.org) playground for it inside `/example`.
-
-The recommended workflow is to run TSDX in one terminal:
-
-```bash
-npm start # or yarn start
+```
+npm install react-google-static
 ```
 
-This builds to `/dist` and runs the project in watch mode so any edits you save inside `src` causes a rebuild to `/dist`.
-
-Then run the example inside another:
-
-```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
+```
+yarn add react-google-static
 ```
 
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**, [we use Parcel's aliasing](https://github.com/palmerhq/tsdx/pull/88/files).
+## Usage
 
-To do a one-off build, use `npm run build` or `yarn build`.
+```jsx
+import React from 'react';
 
-To run tests, use `npm test` or `yarn test`.
+const App = () => (
+  <div>
+    <h1>Google Static Maps API</h1>
 
-## Configuration
+    <GoogleStaticMap
+      apiKey={API_KEY}
+      latitude={32.064171}
+      longitude={34.7748068}
+      style={{ width:  200, height:  200 }}
+      size={{ width:  200, height:  200 }}
+      zoom={16}
+    />
+  </div>
+);
 
-Code quality is [set up for you](https://github.com/palmerhq/tsdx/pull/45/files) with `prettier`, `husky`, and `lint-staged`. Adjust the respective fields in `package.json` accordingly.
-
-### Jest
-
-Jest tests are set up to run with `npm test` or `yarn test`. This runs the test watcher (Jest) in an interactive mode. By default, runs tests related to files changed since the last commit.
-
-#### Setup Files
-
-This is the folder structure we set up for you:
-
-```shell
-/example
-  index.html
-  index.tsx       # test your component here in a demo app
-  package.json
-  tsconfig.json
-/src
-  index.tsx       # EDIT THIS
-/test
-  blah.test.tsx   # EDIT THIS
-.gitignore
-package.json
-README.md         # EDIT THIS
-tsconfig.json
+export default App;
 ```
 
-#### React Testing Library
+## Usage with Custom Icon
 
-We do not set up `react-testing-library` for you yet, we welcome contributions and documentation on this.
+```jsx
+import React from 'react';
 
-### Rollup
+const App = () => (
+  <div>
+    <h1>Google Static Maps API</h1>
 
-TSDX uses [Rollup v1.x](https://rollupjs.org) as a bundler and generates multiple rollup configs for various module formats and build settings. See [Optimizations](#optimizations) for details.
+    <GoogleStaticMap
+      apiKey={API_KEY}
+      latitude={32.064171}
+      longitude={34.7748068}
+      style={{ width:  200, height:  200 }}
+      size={{ width:  200, height:  200 }}
+      zoom={16}
+      iconUrl="https://img.icons8.com/dusk/64/000000/marker.png"
+    />
+  </div>
+);
 
-### TypeScript
-
-`tsconfig.json` is set up to interpret `dom` and `esnext` types, as well as `react` for `jsx`. Adjust according to your needs.
-
-## Continuous Integration
-
-### Travis
-
-_to be completed_
-
-### Circle
-
-_to be completed_
-
-## Optimizations
-
-Please see the main `tsdx` [optimizations docs](https://github.com/palmerhq/tsdx#optimizations). In particular, know that you can take advantage of development-only optimizations:
-
-```js
-// ./types/index.d.ts
-declare var __DEV__: boolean;
-
-// inside your code...
-if (__DEV__) {
-  console.log('foo');
-}
+export default App;
 ```
 
-You can also choose to install and use [invariant](https://github.com/palmerhq/tsdx#invariant) and [warning](https://github.com/palmerhq/tsdx#warning) functions.
 
-## Module Formats
+## Props
 
-CJS, ESModules, and UMD module formats are supported.
-
-The appropriate paths are configured in `package.json` and `dist/index.js` accordingly. Please report if any issues are found.
-
-## Using the Playground
-
-```bash
-cd example
-npm i # or yarn to install dependencies
-npm start # or yarn start
-```
-
-The default example imports and live reloads whatever is in `/dist`, so if you are seeing an out of date component, make sure TSDX is running in watch mode like we recommend above. **No symlinking required**!
-
-## Deploying the Playground
-
-The Playground is just a simple [Parcel](https://parceljs.org) app, you can deploy it anywhere you would normally deploy that. Here are some guidelines for **manually** deploying with the Netlify CLI (`npm i -g netlify-cli`):
-
-```bash
-cd example # if not already in the example folder
-npm run build # builds to dist
-netlify deploy # deploy the dist folder
-```
-
-Alternatively, if you already have a git repo connected, you can set up continuous deployment with Netlify:
-
-```bash
-netlify init
-# build command: yarn build && cd example && yarn && yarn build
-# directory to deploy: example/dist
-# pick yes for netlify.toml
-```
-
-## Named Exports
-
-Per Palmer Group guidelines, [always use named exports.](https://github.com/palmerhq/typescript#exports) Code split inside your React app instead of your React library.
-
-## Including Styles
-
-There are many ways to ship styles, including with CSS-in-JS. TSDX has no opinion on this, configure how you like.
-
-For vanilla CSS, you can include it at the root directory and add it to the `files` section in your `package.json`, so that it can be imported separately by your users and run through their bundler's loader.
-
-## Publishing to NPM
-
-We recommend using [np](https://github.com/sindresorhus/np).
-
-## Usage with Lerna
-
-When creating a new package with TSDX within a project set up with Lerna, you might encounter a `Cannot resolve dependency` error when trying to run the `example` project. To fix that you will need to make changes to the `package.json` file _inside the `example` directory_.
-
-The problem is that due to the nature of how dependencies are installed in Lerna projects, the aliases in the example project's `package.json` might not point to the right place, as those dependencies might have been installed in the root of your Lerna project.
-
-Change the `alias` to point to where those packages are actually installed. This depends on the directory structure of your Lerna project, so the actual path might be different from the diff below.
-
-```diff
-   "alias": {
--    "react": "../node_modules/react",
--    "react-dom": "../node_modules/react-dom"
-+    "react": "../../../node_modules/react",
-+    "react-dom": "../../../node_modules/react-dom"
-   },
-```
-
-An alternative to fixing this problem would be to remove aliases altogether and define the dependencies referenced as aliases as dev dependencies instead. [However, that might cause other problems.](https://github.com/palmerhq/tsdx/issues/64)
-=======
-# react-google-static
-A React wrapper for Google Static Maps API. 
->>>>>>> 3fd0698cadd386ea77b08cf06351ec0977a12fe4
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Required</th>
+  </tr>
+  <tr>
+    <td><code>apiKey</code></td>
+    <td><code>Boolean</code></td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>latitude</code></td>
+    <td><code>string | number</code></td>
+    <td><code>true</code></td>
+  </tr>
+    <tr>
+    <td><code>longitude</code></td>
+    <td><code>string | number</code></td>
+    <td><code>true</code></td>
+  </tr>
+   <tr>
+    <td><code>size</code></td>
+    <td><code>Object</code></td>
+    <td><code>true</code></td>
+  </tr>
+   <tr>
+    <td><code>zoom</code></td>
+    <td><code>number</code></td>
+    <td><code>true</code></td>
+  </tr>
+  <tr>
+    <td><code>scale</code></td>
+    <td><code>number</code></td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>mapFormat</code></td>
+    <td><code>'png'  |  'png32'  |  'gif'  |  'jpg'  |  'jpg-baseline'</code></td>
+    <td><code>false</code></td>
+  </tr>
+   <tr>
+    <td><code>mapType</code></td>
+    <td><code>'roadmap'  |  'satellite'  |  'terrain'  |  'hybrid'</code></td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>iconUrl</code></td>
+    <td><code>string</code></td>
+    <td><code>false</code></td>
+  </tr>
+  <tr>
+    <td><code>style</code></td>
+    <td><code>any</code></td>
+    <td><code>false</code></td>
+  </tr>
+</table>
