@@ -8,7 +8,9 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "cross-env": "^6.0.3",
+    "@types/dotenv": "^8.2.0",
+    "@types/node": "^13.1.6",
+    "dotenv": "^8.2.0",
     "react-app-polyfill": "^1.0.0"
   },
   "alias": {

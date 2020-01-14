@@ -1,6 +1,7 @@
 import * as React from "react";
 
 interface GoogleStaticMapProps {
+  apiKey: string;
   latitude: string | number;
   longitude: string | number;
   size: {
@@ -11,12 +12,12 @@ interface GoogleStaticMapProps {
   scale?: number;
   mapFormat?: 'png' | 'png32' | 'gif' | 'jpg' | 'jpg-baseline';
   mapType?: 'roadmap' | 'satellite' | 'terrain' | 'hybrid';
-  centerMarker?: boolean;
+  iconUrl?: string;
   style?: any;
-  apiKey: string;
 }
 
 const GoogleStaticMap: React.FC<GoogleStaticMapProps> = ({
+  apiKey,
   latitude,
   longitude,
   size,
@@ -24,23 +25,15 @@ const GoogleStaticMap: React.FC<GoogleStaticMapProps> = ({
   scale,
   mapFormat = 'png',
   mapType = 'roadmap',
-  centerMarker = true,
+  iconUrl,
   style,
-  apiKey
 }) => {
   const ROOT_URL = 'https://maps.googleapis.com/maps/api/staticmap';
 
   const getStaticMapUrl = () => {
     const { width, height } = size;
-    return `${ROOT_URL}?center=${latitude},${longitude}&zoom=${zoom}&scale=${scale}&size=${width}x${height}&maptype=${mapType}&format=${mapFormat}&${getMarkerParams}&${getApiKeyParam}`;
+    return `${ROOT_URL}?center=${latitude},${longitude}&zoom=${zoom}&markers=icon:${iconUrl}|${latitude},${longitude}&size=${width}x${height}&scale=${scale}&size=${width}x${height}&maptype=${mapType}&format=${mapFormat}&key=${apiKey}`;
   }
-
-  const getMarkerParams = () => {
-    const getMarkerParams = `markers=icon:dot%7Cshadow:true%7C${latitude},${longitude}`;
-    return centerMarker ? getMarkerParams : '';
-  }
-
-  const getApiKeyParam = () => apiKey ? `key=${apiKey}` : '';
 
   return (
     <img style={style} src={getStaticMapUrl()} />

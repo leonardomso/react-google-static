@@ -4,17 +4,19 @@ import * as ReactDOM from 'react-dom';
 
 import GoogleStaticMap from '../src'
 
+const API_KEY: string = (process.env.API_KEY as string);
+
 const App = () => (
   <div>
     <h1>Google Static Maps API</h1>
 
     <GoogleStaticMap
-      style={{ width: 200, height: 200 }}
+      apiKey={API_KEY}
       latitude={32.064171}
       longitude={34.7748068}
-      size={{ width: 300, height: 550 }}
-      zoom={13}
-      apiKey="testing"
+      style={{ width: 200, height: 200 }}
+      size={{ width: 200, height: 200 }}
+      zoom={16}
     />
   </div>
 );
