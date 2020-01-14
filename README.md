@@ -30,8 +30,8 @@ const App = () => (
       apiKey={API_KEY}
       latitude={32.064171}
       longitude={34.7748068}
-      style={{ width:  200, height:  200 }}
-      size={{ width:  200, height:  200 }}
+      style={{ width: 200, height: 200 }}
+      size={{ width: 200, height: 200 }}
       zoom={16}
     />
   </div>
@@ -53,8 +53,8 @@ const App = () => (
       apiKey={API_KEY}
       latitude={32.064171}
       longitude={34.7748068}
-      style={{ width:  200, height:  200 }}
-      size={{ width:  200, height:  200 }}
+      style={{ width: 200, height: 200 }}
+      size={{ width: 200, height: 200 }}
       zoom={16}
       iconUrl="https://img.icons8.com/dusk/64/000000/marker.png"
     />
