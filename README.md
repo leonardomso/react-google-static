@@ -21,6 +21,7 @@ yarn add react-google-static
 
 ```jsx
 import React from 'react';
+import GoogleStaticMap from 'react-google-static';
 
 const App = () => (
   <div>
@@ -44,6 +45,7 @@ export default App;
 
 ```jsx
 import React from 'react';
+import GoogleStaticMap from 'react-google-static';
 
 const App = () => (
   <div>
