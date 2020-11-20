@@ -2,6 +2,10 @@
    🌍 React Google Static Maps
 </h1>
 
+[![Actions Status](https://github.com/leonardomso/react-google-static/workflows/CI/badge.svg)](https://github.com/leonardomso/react-google-static/actions)
+[![LICENSE MIT](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://github.com/leonardomso/react-google-static)
+[![npm version](https://badge.fury.io/js/react-google-static.svg)](https://badge.fury.io/js/react-google-static)
+
 A React component wrapper to use the Google Static Maps API. Don't forget that to use this API you must have a billing account and an Static Maps API key. 
 
 This library supports custom markers. To use a custom icon, you should provide a url link, for example: `https://img.icons8.com/dusk/64/000000/marker.png`.
