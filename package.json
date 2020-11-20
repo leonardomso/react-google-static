@@ -1,8 +1,11 @@
 {
-  "version": "0.1.1",
+  "name": "react-google-static",
+  "author": "Leonardo Maldonado <leonardomso11@gmail.com>",
+  "version": "0.1.2",
   "license": "MIT",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "module": "dist/react-google-static.esm.js",
   "files": [
     "dist"
   ],
@@ -27,17 +30,14 @@
     "singleQuote": true,
     "trailingComma": "es5"
   },
-  "name": "react-google-static",
-  "author": "leonardomso",
-  "module": "dist/react-google-static.esm.js",
   "devDependencies": {
     "@types/jest": "^26.0.15",
     "@types/react": "^16.9.56",
     "@types/react-dom": "^16.9.9",
     "husky": "^4.3.0",
-    "react": "^16.14.0",
-    "react-dom": "^16.12.0",
-    "tsdx": "^0.12.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "tsdx": "^0.14.1",
     "tslib": "^2.0.3",
     "typescript": "^4.1.2"
   }

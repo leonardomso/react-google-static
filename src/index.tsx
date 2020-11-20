@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from 'react';
 
 interface GoogleStaticMapProps {
   apiKey: string;
@@ -33,11 +33,9 @@ const GoogleStaticMap: React.FC<GoogleStaticMapProps> = ({
   const getStaticMapUrl = () => {
     const { width, height } = size;
     return `${ROOT_URL}?center=${latitude},${longitude}&zoom=${zoom}&markers=icon:${iconUrl}|${latitude},${longitude}&size=${width}x${height}&scale=${scale}&size=${width}x${height}&maptype=${mapType}&format=${mapFormat}&key=${apiKey}`;
-  }
+  };
 
-  return (
-    <img style={style} src={getStaticMapUrl()} />
-  )
-}
+  return <img alt="google static icon" style={style} src={getStaticMapUrl()} />;
+};
 
-export default GoogleStaticMap
+export default GoogleStaticMap;
