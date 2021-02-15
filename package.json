@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@types/jest": "^26.0.20",
-    "@types/react-dom": "^17.0.0",
+    "@types/react-dom": "^17.0.1",
     "@types/react": "^17.0.0",
     "husky": "^4.3.8",
     "react": "^17.0.1",
