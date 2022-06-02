@@ -27,10 +27,10 @@
   },
   "devDependencies": {
     "@types/jest": "^28.1.0",
-    "@types/react": "^17.0.40",
+    "@types/react": "^18.0.10",
     "@types/react-dom": "^18.0.0",
     "husky": "^7.0.4",
-    "react": "^18.0.0",
+    "react": "^18.1.0",
     "react-dom": "^18.0.0",
     "tsdx": "^0.14.1",
     "tslib": "^2.3.1",
