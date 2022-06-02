@@ -26,8 +26,8 @@
     "trailingComma": "es5"
   },
   "devDependencies": {
-    "@types/jest": "^27.5.1",
     "@types/react": "^18.0.9",
+    "@types/jest": "^28.1.0",
     "@types/react-dom": "^18.0.0",
     "husky": "^7.0.4",
     "react": "^18.1.0",
